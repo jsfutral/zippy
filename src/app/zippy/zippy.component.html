@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+    <div class="panel-heading" (click)="onClick()">
+        {{ title }}
+        <div class="glyphicon"
+        [ngClass]="{
+            'glyphicon-chevron-up': selected,
+            'glyphicon-chevron-down': !selected
+        }"></div>
+    </div>
+    <div *ngIf="selected" class="panel-body">
+        
+    </div>
+</div>

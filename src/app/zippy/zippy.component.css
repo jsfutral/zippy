@@ -1,0 +1,8 @@
+.panel.panel-default {
+    width: 50%;
+}
+
+.glyphicon {
+    position: relative;
+    left: 90%;
+}
