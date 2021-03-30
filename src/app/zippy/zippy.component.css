@@ -3,6 +3,5 @@
 }
 
 .glyphicon {
-    position: relative;
-    left: 90%;
+    align: right;
 }

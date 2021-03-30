@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'zippy',
@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ZippyComponent {
 
   selected: boolean = false;
-  title!: String; 
+  @Input() title!: String; 
+
   onClick() {
     this.selected = !this.selected;
   }
