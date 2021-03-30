@@ -1,7 +1,6 @@
 .panel.panel-default {
     width: 50%;
 }
-
-.glyphicon {
-    align: right;
+.panel-heading {
+    font-weight: bold;
 }
