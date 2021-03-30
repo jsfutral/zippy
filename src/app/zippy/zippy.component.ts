@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class ZippyComponent {
 
   selected: boolean = false;
-  @Input() title!: String; 
+  @Input() title!: string; 
 
   onClick() {
     this.selected = !this.selected;
