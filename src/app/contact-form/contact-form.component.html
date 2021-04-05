@@ -1,0 +1,51 @@
+
+
+<form #f="ngForm" (ngSubmit)="submit(f)">
+    <div class="form-group">
+        <label for="firstName">Course Name</label>
+        <input 
+            required 
+            ngModel 
+            name="firstName" 
+            #firstName="ngModel"
+            id="firstName" 
+            type="text" 
+            class="form-control"
+            minlength="5">
+        <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+            <div *ngIf="firstName.errors!.required">
+                Course name is required.
+            </div>
+            <div *ngIf="firstName.errors!.minlength">
+                Course name must be at least 5 characters.
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="categories">Category</label>
+        <select 
+            ngModel
+            required
+            name="courseCategory" 
+            #courseCategory="ngModel"
+            id="categories" 
+            class="form-control"> 
+            <option value=""></option>
+            <option *ngFor="let category of categories" [value]="category.id"> {{ category.name }} </option>
+        </select>
+        <div class="alert alert-danger" *ngIf="courseCategory.touched && !courseCategory.valid">
+            <div *ngIf="courseCategory.errors!.required">
+                Category is required.
+            </div>
+        </div>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" ngModel name="isSelfPromote"> Is Mosh self promoting during his own course?
+        </label>
+    </div>
+    <p>
+        {{ f.value | json }}
+    </p>
+    <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+</form>
