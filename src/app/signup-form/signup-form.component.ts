@@ -10,20 +10,37 @@ import { UsernameValidators } from './username.validators';
 export class SignupFormComponent {
   form = new FormGroup({
     account: new FormGroup({
-      username: new FormControl('', 
-      Validators.required, 
-      UsernameValidators.shouldBeUnique),
-      password: new FormControl('', Validators.required)
+      oldPassword: new FormControl('', 
+        Validators.required, 
+        UsernameValidators.shouldBeUnique),
+      passwords: new FormGroup({
+          newPassword: new FormControl('', Validators.required),
+          confirmPassword: new FormControl('', Validators.required)
+        },
+        UsernameValidators.matchingError
+      )
     })
   });
 
   login() {
-    this.form.setErrors({
-      invalidLogin: true
-    });
+    //this.form.setErrors({
+    //  invalidLogin: true
+    //});
   }
 
-  get username() {
-    return this.form.get('account.username');
+  get oldPassword() {
+    return this.form.get('account.oldPassword');
+  }
+
+  get newPassword() {
+    return this.form.get('account.passwords.newPassword');
+  }
+
+  get confirmPassword() {
+    return this.form.get('account.passwords.confirmPassword');
+  }
+
+  get passwords() {
+    return this.form.get('account.passwords');
   }
 }
