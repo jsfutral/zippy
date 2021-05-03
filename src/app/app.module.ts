@@ -14,6 +14,8 @@ import { NewCourseFormComponent } from './new-course-form/new-course-form.compon
 import { PostsComponent } from './posts/posts.component';
 import { PostService } from './services/post.service';
 import { AppErrorHandler } from './common/app-error-handler';
+import { FollowersComponent } from './followers/followers.component';
+import { FollowerService } from './services/follower.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { AppErrorHandler } from './common/app-error-handler';
     ContactFormComponent,
     SignupFormComponent,
     NewCourseFormComponent,
-    PostsComponent
+    PostsComponent,
+    FollowersComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { AppErrorHandler } from './common/app-error-handler';
   ],
   providers: [
     PostService,
+    FollowerService,
     { provide: ErrorHandler, useClass: AppErrorHandler}
   ],
   bootstrap: [AppComponent]
